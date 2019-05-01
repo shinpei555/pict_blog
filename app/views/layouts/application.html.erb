@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.4.0.js"
+  integrity="sha256-DYZMCC8HTC+QDr5QNaIcfR7VSPtcISykd+6eSmBW5qo="
+  crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <nav>
+    <% if user_signed_in? %>
+    <div class="nav-wrapper teal lighten-2">
+      <a href="/" class="brand-logo">PICBLOG</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><%= link_to '投稿する', new_post_path %></li>
+        <li><a href="#">マイページ</a></li>
+        <li><a href="#"></a>ログアウト</li>
+      </ul>
+    </div>
+    <% else %>
+    <div class="nav-wrapper teal lighten-2">
+      <a href="/" class="brand-logo">PICBLOG</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/users/sign_up">新規登録</a></li>
+        <li><a href="/users/sign_in">ログイン</a></li>
+        <li><%= link_to '投稿する', new_post_path %></li>
+        <%# <li><a href=""></a></li> %>
+      </ul>
+    </div>
+    <% end %>
+    </nav>
+    <%= yield %>
+  </body>
+</html>

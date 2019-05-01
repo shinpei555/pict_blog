@@ -1,0 +1,13 @@
+<div class="container">
+ <div class="row">
+ <% @posts.each do |post|%>
+ <%= post.title %>
+ <%= post.text %>
+ <%# <%= post.image %> %>
+ <%# <%= image_tag post.image_url(:thumb) %> %>
+ <% end %>
+ </div>
+ 
+
+ <%= paginate(@posts) %>
+</div>

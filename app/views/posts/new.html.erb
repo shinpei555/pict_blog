@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <%= form_for @post do |f| %>
+      <%= f.label :タイトル %>
+      <%= f.text_field :title, placeholder: 'タイトル' %>
+      <%= f.label :内容 %>
+      <%= f.text_area :text, placeholder: '投稿内容' %>
+      <%= f.label :画像 %>
+      <%= f.file_field :image, placeholder: '画像' %>
+      
+      <%= f.submit '投稿', class: 'btn btn-black btn-block' %>
+    <% end %>
+  </div>
+</div>
