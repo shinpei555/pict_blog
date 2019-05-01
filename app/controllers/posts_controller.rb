@@ -1,9 +1,10 @@
 class PostsController < ApplicationController
 
-  before_action :logout_move_index,  except: :index
+  # before_action :logout_move_index,  except: :index
   
   def index
-    @posts = Post.all.order('created_at DESC').page(params[:page]).per(10)
+    @posts = Post.all.order('created_at DESC')
+    # .page(params[:page]).per(10)
   end
 
   def new
@@ -13,7 +14,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to root_path
+      redirect_to :action => :index
     else
       render :new
     end

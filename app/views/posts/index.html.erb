@@ -1,13 +1,19 @@
-<div class="container">
- <div class="row">
- <% @posts.each do |post|%>
- <%= post.title %>
- <%= post.text %>
- <%# <%= post.image %> %>
- <%# <%= image_tag post.image_url(:thumb) %> %>
- <% end %>
- </div>
- 
-
- <%= paginate(@posts) %>
+<div class="row">
+  <% @posts.each do |post|%>
+  <div class="posts-wrapper">
+    <div class="post-block">
+      <div class="image">
+        <%= image_tag post.image_url(:thumb), :size =>'180x120' %>
+      </div>
+      <div class="">
+        <%= post.title %>
+      </div>
+        <ul class="button-box">
+          <li><a class="waves-effect waves-light btn-small">続きを見る</a></li>
+          <li><a class="waves-effect waves-light btn-small">編集</a></li>
+          <li><a class="waves-effect waves-light btn-small">削除</a></li>
+        </ul>
+    </div>
+  </div>
+  <% end %>
 </div>
